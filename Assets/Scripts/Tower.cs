@@ -13,6 +13,7 @@ public class Tower : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
     public Transform firePoint2;
+    public LayerMask layer;
 
     private float fireCountdown;
 
@@ -39,10 +40,11 @@ public class Tower : MonoBehaviour
             }
         }
 
-        Collider[] hitColliders = Physics.OverlapSphere(transform.position, 1f);
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, 10f, layer);
         foreach (var hitCollider in hitColliders)
         {
-            hitCollider.SendMessage("AddDamage");
+            Debug.Log(hitCollider.gameObject.name);
+            //hitCollider.SendMessage("AddDamage");
         }
     }
 
@@ -51,7 +53,13 @@ public class Tower : MonoBehaviour
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Instantiate(bulletPrefab, firePoint2.position, firePoint2.rotation);
 
-    }    
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawSphere(transform.position, 10f);
+    }
 }
 
 

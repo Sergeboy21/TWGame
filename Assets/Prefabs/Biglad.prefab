@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7745387563122190777}
   - component: {fileID: 8413497113315075840}
   - component: {fileID: 5130596074850278668}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Biglad
   m_TagString: Enemy
   m_Icon: {fileID: 0}
