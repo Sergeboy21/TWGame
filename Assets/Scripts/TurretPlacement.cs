@@ -15,7 +15,10 @@ public class TurretPlacement : MonoBehaviour
 
             if (Physics.Raycast(ray, out hit))
             {
-                PlaceTurret(hit.point);
+                if (hit.collider.tag == "placeable")
+                {
+                    PlaceTurret(hit.point);
+                }
             }
         }
     }
