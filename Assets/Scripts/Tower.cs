@@ -56,7 +56,7 @@ public class Tower : MonoBehaviour
         foreach (var hitCollider in hitColliders)
         {
             Debug.Log(hitCollider.gameObject.name);
-            //hitCollider.SendMessage("AddDamage");
+            
         }
     }
 
@@ -64,6 +64,11 @@ public class Tower : MonoBehaviour
     {
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
         Instantiate(bulletPrefab, firePoint2.position, firePoint2.rotation);
+
+        if (gameObject.tag == "placeable")
+        {
+            Destroy(gameObject);
+        }
 
     }
 
